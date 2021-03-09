@@ -32,19 +32,19 @@ type ClientOption func(*runtime.ClientOperation)
 type ClientService interface {
 	GetClassic(params *GetClassicParams, opts ...ClientOption) (*GetClassicOK, error)
 
-	GetClassicFormat(params *GetClassicFormatParams, opts ...ClientOption) (*GetClassicFormatOK, error)
+	GetClassicJSON(params *GetClassicJSONParams, opts ...ClientOption) (*GetClassicJSONOK, error)
 
 	GetCompact(params *GetCompactParams, opts ...ClientOption) (*GetCompactOK, error)
 
-	GetCompactFormat(params *GetCompactFormatParams, opts ...ClientOption) (*GetCompactFormatOK, error)
+	GetCompactJSON(params *GetCompactJSONParams, opts ...ClientOption) (*GetCompactJSONOK, error)
 
 	GetComplete(params *GetCompleteParams, opts ...ClientOption) (*GetCompleteOK, error)
 
-	GetCompleteFormat(params *GetCompleteFormatParams, opts ...ClientOption) (*GetCompleteFormatOK, error)
+	GetCompleteJSON(params *GetCompleteJSONParams, opts ...ClientOption) (*GetCompleteJSONOK, error)
 
 	GetStatus(params *GetStatusParams, opts ...ClientOption) (*GetStatusOK, error)
 
-	GetStatusFormat(params *GetStatusFormatParams, opts ...ClientOption) (*GetStatusFormatOK, error)
+	GetStatusJSON(params *GetStatusJSONParams, opts ...ClientOption) (*GetStatusJSONOK, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -88,22 +88,22 @@ func (a *Client) GetClassic(params *GetClassicParams, opts ...ClientOption) (*Ge
 }
 
 /*
-  GetClassicFormat Weather forecast for a specified place
+  GetClassicJSON Weather forecast for a specified place
 */
-func (a *Client) GetClassicFormat(params *GetClassicFormatParams, opts ...ClientOption) (*GetClassicFormatOK, error) {
+func (a *Client) GetClassicJSON(params *GetClassicJSONParams, opts ...ClientOption) (*GetClassicJSONOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewGetClassicFormatParams()
+		params = NewGetClassicJSONParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "GetClassicFormat",
+		ID:                 "GetClassicJSON",
 		Method:             "GET",
-		PathPattern:        "/classic.{format}",
+		PathPattern:        "/classic.json",
 		ProducesMediaTypes: []string{"application/xml"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http"},
 		Params:             params,
-		Reader:             &GetClassicFormatReader{formats: a.formats},
+		Reader:             &GetClassicJSONReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -115,13 +115,13 @@ func (a *Client) GetClassicFormat(params *GetClassicFormatParams, opts ...Client
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*GetClassicFormatOK)
+	success, ok := result.(*GetClassicJSONOK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for GetClassicFormat: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for GetClassicJSON: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
@@ -164,22 +164,22 @@ func (a *Client) GetCompact(params *GetCompactParams, opts ...ClientOption) (*Ge
 }
 
 /*
-  GetCompactFormat Weather forecast for a specified place
+  GetCompactJSON Weather forecast for a specified place
 */
-func (a *Client) GetCompactFormat(params *GetCompactFormatParams, opts ...ClientOption) (*GetCompactFormatOK, error) {
+func (a *Client) GetCompactJSON(params *GetCompactJSONParams, opts ...ClientOption) (*GetCompactJSONOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewGetCompactFormatParams()
+		params = NewGetCompactJSONParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "GetCompactFormat",
+		ID:                 "GetCompactJSON",
 		Method:             "GET",
-		PathPattern:        "/compact.{format}",
+		PathPattern:        "/compact.json",
 		ProducesMediaTypes: []string{"application/json;charset=UTF-8"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http"},
 		Params:             params,
-		Reader:             &GetCompactFormatReader{formats: a.formats},
+		Reader:             &GetCompactJSONReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -191,13 +191,13 @@ func (a *Client) GetCompactFormat(params *GetCompactFormatParams, opts ...Client
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*GetCompactFormatOK)
+	success, ok := result.(*GetCompactJSONOK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for GetCompactFormat: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for GetCompactJSON: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
@@ -240,22 +240,22 @@ func (a *Client) GetComplete(params *GetCompleteParams, opts ...ClientOption) (*
 }
 
 /*
-  GetCompleteFormat Weather forecast for a specified place
+  GetCompleteJSON Weather forecast for a specified place
 */
-func (a *Client) GetCompleteFormat(params *GetCompleteFormatParams, opts ...ClientOption) (*GetCompleteFormatOK, error) {
+func (a *Client) GetCompleteJSON(params *GetCompleteJSONParams, opts ...ClientOption) (*GetCompleteJSONOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewGetCompleteFormatParams()
+		params = NewGetCompleteJSONParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "GetCompleteFormat",
+		ID:                 "GetCompleteJSON",
 		Method:             "GET",
-		PathPattern:        "/complete.{format}",
+		PathPattern:        "/complete.json",
 		ProducesMediaTypes: []string{"application/json;charset=UTF-8"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http"},
 		Params:             params,
-		Reader:             &GetCompleteFormatReader{formats: a.formats},
+		Reader:             &GetCompleteJSONReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -267,13 +267,13 @@ func (a *Client) GetCompleteFormat(params *GetCompleteFormatParams, opts ...Clie
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*GetCompleteFormatOK)
+	success, ok := result.(*GetCompleteJSONOK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for GetCompleteFormat: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for GetCompleteJSON: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
@@ -316,22 +316,22 @@ func (a *Client) GetStatus(params *GetStatusParams, opts ...ClientOption) (*GetS
 }
 
 /*
-  GetStatusFormat Weather forecast for a specified place
+  GetStatusJSON Weather forecast for a specified place
 */
-func (a *Client) GetStatusFormat(params *GetStatusFormatParams, opts ...ClientOption) (*GetStatusFormatOK, error) {
+func (a *Client) GetStatusJSON(params *GetStatusJSONParams, opts ...ClientOption) (*GetStatusJSONOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewGetStatusFormatParams()
+		params = NewGetStatusJSONParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "GetStatusFormat",
+		ID:                 "GetStatusJSON",
 		Method:             "GET",
-		PathPattern:        "/status.{format}",
+		PathPattern:        "/status.json",
 		ProducesMediaTypes: []string{"application/json;charset=UTF-8"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http"},
 		Params:             params,
-		Reader:             &GetStatusFormatReader{formats: a.formats},
+		Reader:             &GetStatusJSONReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -343,13 +343,13 @@ func (a *Client) GetStatusFormat(params *GetStatusFormatParams, opts ...ClientOp
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*GetStatusFormatOK)
+	success, ok := result.(*GetStatusJSONOK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for GetStatusFormat: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for GetStatusJSON: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
